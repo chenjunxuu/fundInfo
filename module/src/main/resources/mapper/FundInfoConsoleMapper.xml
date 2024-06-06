@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper  namespace="com.example.fundInfo.module.mapper.FundInfoConsoleMapper">
+
+    <insert id="insert" parameterType="com.example.fundInfo.module.entity.FundInfo">
+        insert into fund_info (fund_code,fund_name,yield_rate_min,yield_rate_max,invest_term_type,start_buy_money,popularity_value,publish_time_start,publish_time_end,risk_grade,product_specification_url,picture_url,create_time,is_deleted)
+        values (
+                #{fund_info.fund_code},
+                #{fund_info.fund_name},
+                #{fund_info.yield_rate_min},
+                #{fund_info.yield_rate_max},
+                #{fund_info.invest_term_type},
+                #{fund_info.start_buy_money},
+                #{fund_info.popularity_value},
+                #{fund_info.publish_time_start},
+                #{fund_info.publish_time_end},
+                #{fund_info.risk_grade},
+                #{fund_info.product_specifiction_url},
+                #{fund_info.picture_url},
+                #{fund_info.creat_time},
+                #{fund_info.is_deleted}
+               )
+    </insert>
+
+    <update id="update" parameterType="com.example.fundInfo.module.entity.FundInfo">
+        update fund_info set fund_code = #{fund_info.fund_code},
+                             fund_name =  #{fund_info.fund_name},
+                             yield_rate_min = #{fund_info.yield_rate_min},
+                             yield_rate_max = #{fund_info.yield_rate_max},
+                             invest_term_type = #{fund_info.invest_term_type},
+                             start_buy_money = #{fund_info.start_buy_money},
+                             popularity_value = #{fund_info.publish_time_start},
+                             publish_time_end = #{fund_info.publish_time_end},
+                             risk_grade = #{fund_info.risk_grade},
+                             roduct_specifiction_url = #{fund_info.product_specifiction_url},
+                             picture_url = #{fund_info.picture_url},
+                             update_time = #{fund_info.update_time},
+                             is_deleted = #{fund_info.is_deleted}
+    </update>
+</mapper>
