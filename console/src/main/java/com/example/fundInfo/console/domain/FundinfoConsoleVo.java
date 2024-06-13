@@ -1,15 +1,11 @@
-package com.example.fundInfo.module.entity;
+package com.example.fundInfo.console.domain;
 
-import java.math.BigDecimal;
 import java.math.BigInteger;
-import java.util.Date;
 
-public class FundInfo {
-    private int id;
+public class FundinfoConsoleVo {
     private String fundCode;
     private String fundName;
-    private BigInteger yieldRateMin;
-    private BigInteger yieldRateMax;
+    private String fundRate;
     private Integer investTermType;
     private BigInteger startBuyMoney;
     private Integer popularityValue;
@@ -17,18 +13,7 @@ public class FundInfo {
     private Integer publishTimeEnd;
     private Integer riskGrade;
     private String productSpecificationUrl;
-    private String pictureUrl;
-    private Integer createTime;
-    private Integer updateTime;
-    private Integer isDelete;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
+    private String pictureUrls;
 
     public String getFundCode() {
         return fundCode;
@@ -46,20 +31,12 @@ public class FundInfo {
         this.fundName = fundName;
     }
 
-    public BigInteger getYieldRateMin() {
-        return yieldRateMin;
+    public String getFundRate() {
+        return fundRate;
     }
 
-    public void setYieldRateMin(BigInteger yieldRateMin) {
-        this.yieldRateMin = yieldRateMin;
-    }
-
-    public BigInteger getYieldRateMax() {
-        return yieldRateMax;
-    }
-
-    public void setYieldRateMax(BigInteger yieldRateMax) {
-        this.yieldRateMax = yieldRateMax;
+    public void setFundRate(String fundRate) {
+        this.fundRate = fundRate;
     }
 
     public Integer getInvestTermType() {
@@ -118,39 +95,11 @@ public class FundInfo {
         this.productSpecificationUrl = productSpecificationUrl;
     }
 
-    public String getPictureUrl() {
-        return pictureUrl;
+    public String getPictureUrls() {
+        return pictureUrls;
     }
 
-    public void setPictureUrl(String pictureUrl) {
-        this.pictureUrl = pictureUrl;
+    public void setPictureUrls(String pictureUrls) {
+        this.pictureUrls = pictureUrls;
     }
-
-    public Integer getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Integer createTime) {
-        this.createTime = createTime;
-    }
-
-    public Integer getUpdateTime() {
-        return updateTime;
-    }
-
-    public void setUpdateTime(Integer updateTime) {
-        this.updateTime = updateTime;
-    }
-
-    public Integer getIsDelete() {
-        return isDelete;
-    }
-
-    public void setIsDelete(Integer isDelete) {
-        this.isDelete = isDelete;
-    }
-
-
-
-
 }

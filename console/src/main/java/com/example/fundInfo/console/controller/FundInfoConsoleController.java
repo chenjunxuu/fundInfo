@@ -1,12 +1,10 @@
 package com.example.fundInfo.console.controller;
 
+import com.example.fundInfo.console.domain.FundinfoConsoleVo;
 import com.example.fundInfo.module.entity.FundInfo;
 import com.example.fundInfo.module.service.FundInfoConsoleService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.math.BigInteger;
 
@@ -17,9 +15,10 @@ public class FundInfoConsoleController {
     private FundInfoConsoleService fundInfoConsoleService;
 
     @RequestMapping(value =  "/create",method = RequestMethod.GET)
+    //@RequestMapping("/create")
     public int fundInfoCreate(@RequestParam(name = "fundCode") String fundCode,
                                  @RequestParam(name = "fundName") String fundName,
-                                 @RequestParam(name = "fundRate") BigInteger fundRate,
+                                 @RequestParam(name = "fundRate") String fundRate,
                                  @RequestParam(name = "investTermType") Integer investTermType,
                                  @RequestParam(name = "startBuyMoney") BigInteger startBuyMoney,
                                  @RequestParam(name = "popularityValue") Integer popularityValue,
@@ -28,11 +27,10 @@ public class FundInfoConsoleController {
                                  @RequestParam(name = "riskGrade") Integer riskGrade,
                                  @RequestParam(name = "productSpecificationUrl") String productSpecificationUrl,
                                  @RequestParam(name = "pictureUrls") String pictureUrls
-
                                  ){
+
         return fundInfoConsoleService.createFundInfo(fundCode,fundName,fundRate,investTermType,startBuyMoney,popularityValue,publishTimeStart,publishTimeEnd,riskGrade,productSpecificationUrl,pictureUrls);
     }
-
     @RequestMapping("/console/updateFundInfo")
     public int fundInfoUpdate(FundInfo fundInfo) {
         return fundInfoConsoleService.updateFundInfo(fundInfo);
@@ -43,4 +41,3 @@ public class FundInfoConsoleController {
         return fundInfoConsoleService.deleteFundInfo(id);
     }
 }
-
