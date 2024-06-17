@@ -1,11 +1,9 @@
 package com.example.fundInfo.module.entity;
 
-import java.math.BigDecimal;
 import java.math.BigInteger;
-import java.util.Date;
 
 public class FundInfo {
-    private int id;
+    private BigInteger id;
     private String fundCode;
     private String fundName;
     private BigInteger yieldRateMin;
@@ -22,11 +20,11 @@ public class FundInfo {
     private Integer updateTime;
     private Integer isDelete;
 
-    public int getId() {
+    public BigInteger getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(BigInteger id) {
         this.id = id;
     }
 

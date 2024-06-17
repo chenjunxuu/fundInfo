@@ -23,18 +23,19 @@
     </insert>
 
     <update id="update" parameterType="com.example.fundInfo.module.entity.FundInfo">
-        update fund_info set fund_code = #{fund_info.fund_code},
-                             fund_name =  #{fund_info.fund_name},
-                             yield_rate_min = #{fund_info.yield_rate_min},
-                             yield_rate_max = #{fund_info.yield_rate_max},
-                             invest_term_type = #{fund_info.invest_term_type},
-                             start_buy_money = #{fund_info.start_buy_money},
-                             popularity_value = #{fund_info.publish_time_start},
-                             publish_time_end = #{fund_info.publish_time_end},
-                             risk_grade = #{fund_info.risk_grade},
-                             roduct_specifiction_url = #{fund_info.product_specifiction_url},
-                             picture_url = #{fund_info.picture_url},
-                             update_time = #{fund_info.update_time},
-                             is_deleted = #{fund_info.is_deleted}
+        update fund_info set fund_code = #{fundInfo.fundCode},
+                             fund_name =  #{fundInfo.fundName},
+                             yield_rate_min = #{fundInfo.yieldRateMin},
+                             yield_rate_max = #{fundInfo.yieldRateMax},
+                             invest_term_type = #{fundInfo.investTermType},
+                             start_buy_money = #{fundInfo.startBuyMoney},
+                             popularity_value = #{fundInfo.popularityValue},
+                             publish_time_start = #{fundInfo.publishTimeStart},
+                             publish_time_end = #{fundInfo.publishTimeEnd},
+                             risk_grade = #{fundInfo.riskGrade},
+                             product_specification_url = #{fundInfo.productSpecificationUrl},
+                             picture_url = #{fundInfo.pictureUrl},
+                             update_time = #{fundInfo.updateTime}
+        where id = #{fundInfo.id}
     </update>
 </mapper>

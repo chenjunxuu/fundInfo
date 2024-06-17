@@ -3,6 +3,7 @@ package com.example.fundInfo.module.mapper;
 import com.example.fundInfo.module.entity.FundInfo;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import java.math.BigInteger;
 import java.util.List;
@@ -20,5 +21,6 @@ public interface FundInfoConsoleMapper {
 
     int update(@Param("fundInfo") FundInfo fundInfo);
 
-    int delete(@Param("id") BigInteger id);
+    @Update("update fund_info  set is_deleted = 1,update_time = #{time}  where id = #{id}")
+    int delete(@Param("id") BigInteger id,@Param("time") Integer time);
 }
