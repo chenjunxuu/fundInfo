@@ -33,7 +33,8 @@ public class FundInfoAppController {
             appFundInfoVo.setStartBuyMoney(String.valueOf(fundInfo.getStartBuyMoney()));
             appFundInfoVo.setPopularityValue(fundInfo.getPopularityValue());
             // 图片地址
-            String[] split = fundInfo.getPictureUrl().split("\\$");
+            List<String> split = new ArrayList<>();
+            split = List.of(fundInfo.getPictureUrl().split("\\$"));
             appFundInfoVo.setPictureUrl(split);
             appFundInfoVos.add(appFundInfoVo);
         }
@@ -56,7 +57,8 @@ public class FundInfoAppController {
         appFundInfoVo.setRiskGrade(fundInfo.getRiskGrade());
         appFundInfoVo.setProductSpecificationUrl(fundInfo.getProductSpecificationUrl());
         // 图片地址
-        String[] split = fundInfo.getPictureUrl().split("\\$");
+        List<String> split = new ArrayList<>();
+        split = List.of(fundInfo.getPictureUrl().split("\\$"));
         appFundInfoVo.setPictureUrl(split);
         return appFundInfoVo;
     }

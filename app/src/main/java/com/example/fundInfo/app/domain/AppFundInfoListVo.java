@@ -1,15 +1,10 @@
 package com.example.fundInfo.app.domain;
 
 import java.math.BigInteger;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
-public class AppFundInfoVo {
+public class AppFundInfoListVo {
     private BigInteger id;
-
-    private String fundId;
-    //产品名称
+    //基金名称
     private String fundName;
     //收益率
     private String fundRate;
@@ -19,16 +14,8 @@ public class AppFundInfoVo {
     private String startBuyMoney;
     //人气值
     private Integer popularityValue;
-    //发行时间
-    private String publishTime;
-    //风险等级
-    private Integer riskGrade;
-    //产品说明书
-    private String productSpecificationUrl;
     //图片地址
-    private List<String> pictureUrl;
-
-
+    private String pictureUrl;
 
     public BigInteger getId() {
         return id;
@@ -36,14 +23,6 @@ public class AppFundInfoVo {
 
     public void setId(BigInteger id) {
         this.id = id;
-    }
-
-    public String getFundId() {
-        return fundId;
-    }
-
-    public void setFundId(String fundId) {
-        this.fundId = fundId;
     }
 
     public String getFundName() {
@@ -86,35 +65,11 @@ public class AppFundInfoVo {
         this.popularityValue = popularityValue;
     }
 
-    public String getPublishTime() {
-        return publishTime;
-    }
-
-    public void setPublishTime(String publishTime) {
-        this.publishTime = publishTime;
-    }
-
-    public Integer getRiskGrade() {
-        return riskGrade;
-    }
-
-    public void setRiskGrade(Integer riskGrade) {
-        this.riskGrade = riskGrade;
-    }
-
-    public String getProductSpecificationUrl    () {
-        return productSpecificationUrl;
-    }
-
-    public void setProductSpecificationUrl(String productSpecificationUrl) {
-        this.productSpecificationUrl = productSpecificationUrl;
-    }
-
-    public List<String> getPictureUrl() {
+    public String getPictureUrl() {
         return pictureUrl;
     }
 
-    public void setPictureUrl(List<String> pictureUrl) {
+    public void setPictureUrl(String pictureUrl) {
         this.pictureUrl = pictureUrl;
     }
 }
