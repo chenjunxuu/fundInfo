@@ -1,6 +1,6 @@
 package com.example.fundInfo.console.controller;
 
-import com.example.fundInfo.module.service.FundInfoConsoleService;
+import com.example.fundInfo.module.service.FundInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,7 +10,7 @@ import java.math.BigInteger;
 @RequestMapping("/console/fundInfo")
 public class FundInfoConsoleController {
     @Autowired
-    private FundInfoConsoleService fundInfoConsoleService;
+    private FundInfoService fundInfoService;
 
     @RequestMapping(value =  "/create",method = RequestMethod.GET)
     //@RequestMapping("/create")
@@ -26,7 +26,7 @@ public class FundInfoConsoleController {
                                  @RequestParam(name = "productSpecificationUrl") String productSpecificationUrl,
                                  @RequestParam(name = "pictureUrls") String pictureUrls
                                  ){
-        int result = fundInfoConsoleService.createFundInfo(fundCode,fundName,fundRate,investTermType,startBuyMoney,popularityValue,publishTimeStart,publishTimeEnd,riskGrade,productSpecificationUrl,pictureUrls);
+        int result = fundInfoService.createFundInfo(fundCode,fundName,fundRate,investTermType,startBuyMoney,popularityValue,publishTimeStart,publishTimeEnd,riskGrade,productSpecificationUrl,pictureUrls);
         return 1 == result ? "成功" : "失败";
     }
     @RequestMapping(value = "/update" ,method = RequestMethod.GET)
@@ -42,13 +42,13 @@ public class FundInfoConsoleController {
                               @RequestParam(name = "riskGrade") Integer riskGrade,
                               @RequestParam(name = "productSpecificationUrl") String productSpecificationUrl,
                               @RequestParam(name = "pictureUrls") String pictureUrls) {
-        int result = fundInfoConsoleService.updateFundInfo(id,fundCode,fundName,fundRate,investTermType,startBuyMoney,popularityValue,publishTimeStart,publishTimeEnd,riskGrade,productSpecificationUrl,pictureUrls);
+        int result = fundInfoService.updateFundInfo(id,fundCode,fundName,fundRate,investTermType,startBuyMoney,popularityValue,publishTimeStart,publishTimeEnd,riskGrade,productSpecificationUrl,pictureUrls);
         return 1 == result ? "成功" : "失败";
 
     }
     @RequestMapping("/delete")
     public String fundInfoDeleted(@RequestParam(name = "id") BigInteger id) {
-        int result = fundInfoConsoleService.deleteFundInfo(id);
+        int result = fundInfoService.deleteFundInfo(id);
         return 1 == result ? "成功" : "失败";
     }
 }

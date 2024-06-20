@@ -1,4 +1,5 @@
 package com.example.fundInfo.app.controller;
+import com.example.fundInfo.app.domain.AppFundInfoListVo;
 import com.example.fundInfo.app.domain.AppFundInfoVo;
 import com.example.fundInfo.module.entity.FundInfo;
 import com.example.fundInfo.module.service.FundInfoService;
@@ -18,29 +19,32 @@ public class FundInfoAppController {
 
 
     //http://localhost:8080/fundInfo/all
+    //查询基金列表
     @RequestMapping("/all")
-    public List<AppFundInfoVo> getAllFundInfo(){
+    public List<AppFundInfoListVo> getAllFundInfo(){
 
         List<FundInfo> fundInfoList = new ArrayList<>();
         fundInfoList = fundInfoService.findAll();
-        List<AppFundInfoVo> appFundInfoVos = new ArrayList<>();
+        List<AppFundInfoListVo> AppFundInfoListVos = new ArrayList<>();
         for (FundInfo fundInfo : fundInfoList) {
-            AppFundInfoVo appFundInfoVo = new AppFundInfoVo();
-            appFundInfoVo.setId(fundInfo.getId());
-            appFundInfoVo.setFundName(fundInfo.getFundName());
-            appFundInfoVo.setFundRate((String.valueOf(fundInfo.getYieldRateMin()))+"%"+"-"+(String.valueOf(fundInfo.getYieldRateMax()))+"%");
-            appFundInfoVo.setInvestTermType(String.valueOf(fundInfo.getInvestTermType()));
-            appFundInfoVo.setStartBuyMoney(String.valueOf(fundInfo.getStartBuyMoney()));
-            appFundInfoVo.setPopularityValue(fundInfo.getPopularityValue());
+
+            AppFundInfoListVo appFundInfoListVo = new AppFundInfoListVo();
+            appFundInfoListVo.setId(fundInfo.getId());
+            appFundInfoListVo.setFundName(fundInfo.getFundName());
+            appFundInfoListVo.setFundRate((String.valueOf(fundInfo.getYieldRateMin()))+"%"+"-"+(String.valueOf(fundInfo.getYieldRateMax()))+"%");
+            appFundInfoListVo.setInvestTermType(String.valueOf(fundInfo.getInvestTermType()));
+            appFundInfoListVo.setStartBuyMoney(String.valueOf(fundInfo.getStartBuyMoney()));
+            appFundInfoListVo.setPopularityValue(fundInfo.getPopularityValue());
             // 图片地址
             List<String> split = new ArrayList<>();
             split = List.of(fundInfo.getPictureUrl().split("\\$"));
-            appFundInfoVo.setPictureUrl(split);
-            appFundInfoVos.add(appFundInfoVo);
+            appFundInfoListVo.setPictureUrl(split.get(0));
+            AppFundInfoListVos.add(appFundInfoListVo);
         }
-        return appFundInfoVos;
+        return AppFundInfoListVos;
     }
     //http://localhost:8080/fundInfo/info?id=1
+    //查询基金详情
     @RequestMapping("/info")
     public AppFundInfoVo getFundInfoById(@RequestParam(name = "id") BigInteger id){
         FundInfo fundInfo = new FundInfo();

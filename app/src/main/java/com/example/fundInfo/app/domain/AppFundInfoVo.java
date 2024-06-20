@@ -4,7 +4,7 @@ import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
+//基金详情Vo
 public class AppFundInfoVo {
     private BigInteger id;
 

@@ -1,7 +1,7 @@
 package com.example.fundInfo.app.domain;
 
 import java.math.BigInteger;
-
+//基金列表Vo
 public class AppFundInfoListVo {
     private BigInteger id;
     //基金名称
