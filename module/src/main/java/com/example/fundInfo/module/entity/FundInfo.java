@@ -15,10 +15,10 @@ public class FundInfo {
     private Integer publishTimeEnd;
     private Integer riskGrade;
     private String productSpecificationUrl;
-    private String pictureUrl;
+    private String picturesUrl;
     private Integer createTime;
     private Integer updateTime;
-    private Integer isDelete;
+    private Integer isDeleted;
 
     public BigInteger getId() {
         return id;
@@ -116,12 +116,12 @@ public class FundInfo {
         this.productSpecificationUrl = productSpecificationUrl;
     }
 
-    public String getPictureUrl() {
-        return pictureUrl;
+    public String getPicturesUrl() {
+        return picturesUrl;
     }
 
-    public void setPictureUrl(String pictureUrl) {
-        this.pictureUrl = pictureUrl;
+    public void setPicturesUrl(String picturesUrl) {
+        this.picturesUrl = picturesUrl;
     }
 
     public Integer getCreateTime() {
@@ -140,15 +140,11 @@ public class FundInfo {
         this.updateTime = updateTime;
     }
 
-    public Integer getIsDelete() {
-        return isDelete;
+    public Integer getIsDeleted() {
+        return isDeleted;
     }
 
-    public void setIsDelete(Integer isDelete) {
-        this.isDelete = isDelete;
+    public void setIsDeleted(Integer isDeleted) {
+        this.isDeleted = isDeleted;
     }
-
-
-
-
 }

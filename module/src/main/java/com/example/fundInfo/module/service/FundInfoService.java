@@ -45,9 +45,9 @@ public class FundInfoService {
         fundInfo.setPublishTimeEnd(publishTimeEnd);
         fundInfo.setRiskGrade(riskGrade);
         fundInfo.setProductSpecificationUrl(productSpecificationUrl);
-        fundInfo.setPictureUrl(pictureUrls);
+        fundInfo.setPicturesUrl(pictureUrls);
         fundInfo.setCreateTime(timestamp);
-        fundInfo.setIsDelete(0);
+        fundInfo.setIsDeleted(0);
         return fundInfoMapper.insert(fundInfo);
     }
 
@@ -74,9 +74,9 @@ public class FundInfoService {
         fundInfo.setPublishTimeEnd(publishTimeEnd);
         fundInfo.setRiskGrade(riskGrade);
         fundInfo.setProductSpecificationUrl(productSpecificationUrl);
-        fundInfo.setPictureUrl(pictureUrls);
+        fundInfo.setPicturesUrl(pictureUrls);
         fundInfo.setUpdateTime(timestamp);
-        fundInfo.setIsDelete(0);
+        fundInfo.setIsDeleted(0);
         return fundInfoMapper.update(fundInfo);
     }
 

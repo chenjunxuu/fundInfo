@@ -24,9 +24,9 @@ public class FundInfoConsoleController {
                                  @RequestParam(name = "publishTimeEnd") Integer publishTimeEnd,
                                  @RequestParam(name = "riskGrade") Integer riskGrade,
                                  @RequestParam(name = "productSpecificationUrl") String productSpecificationUrl,
-                                 @RequestParam(name = "pictureUrls") String pictureUrls
+                                 @RequestParam(name = "picturesUrl") String picturesUrl
                                  ){
-        int result = fundInfoService.createFundInfo(fundCode,fundName,fundRate,investTermType,startBuyMoney,popularityValue,publishTimeStart,publishTimeEnd,riskGrade,productSpecificationUrl,pictureUrls);
+        int result = fundInfoService.createFundInfo(fundCode,fundName,fundRate,investTermType,startBuyMoney,popularityValue,publishTimeStart,publishTimeEnd,riskGrade,productSpecificationUrl,picturesUrl);
         return 1 == result ? "成功" : "失败";
     }
     @RequestMapping(value = "/update" ,method = RequestMethod.GET)
@@ -41,8 +41,8 @@ public class FundInfoConsoleController {
                               @RequestParam(name = "publishTimeEnd") Integer publishTimeEnd,
                               @RequestParam(name = "riskGrade") Integer riskGrade,
                               @RequestParam(name = "productSpecificationUrl") String productSpecificationUrl,
-                              @RequestParam(name = "pictureUrls") String pictureUrls) {
-        int result = fundInfoService.updateFundInfo(id,fundCode,fundName,fundRate,investTermType,startBuyMoney,popularityValue,publishTimeStart,publishTimeEnd,riskGrade,productSpecificationUrl,pictureUrls);
+                              @RequestParam(name = "picturesUrl") String picturesUrl) {
+        int result = fundInfoService.updateFundInfo(id,fundCode,fundName,fundRate,investTermType,startBuyMoney,popularityValue,publishTimeStart,publishTimeEnd,riskGrade,productSpecificationUrl,picturesUrl);
         return 1 == result ? "成功" : "失败";
 
     }

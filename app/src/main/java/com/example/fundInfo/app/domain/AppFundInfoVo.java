@@ -1,8 +1,6 @@
 package com.example.fundInfo.app.domain;
 
 import java.math.BigInteger;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 //基金详情Vo
 public class AppFundInfoVo {
@@ -26,7 +24,7 @@ public class AppFundInfoVo {
     //产品说明书
     private String productSpecificationUrl;
     //图片地址
-    private List<String> pictureUrl;
+    private List<String> picturesUrl;
 
 
 
@@ -110,11 +108,11 @@ public class AppFundInfoVo {
         this.productSpecificationUrl = productSpecificationUrl;
     }
 
-    public List<String> getPictureUrl() {
-        return pictureUrl;
+    public List<String> getPicturesUrl() {
+        return picturesUrl;
     }
 
-    public void setPictureUrl(List<String> pictureUrl) {
-        this.pictureUrl = pictureUrl;
+    public void setPicturesUrl(List<String> picturesUrl) {
+        this.picturesUrl = picturesUrl;
     }
 }

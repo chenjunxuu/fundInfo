@@ -3,7 +3,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper  namespace="com.example.fundInfo.module.mapper.FundInfoMapper">
     <insert id="insert" parameterType="com.example.fundInfo.module.entity.FundInfo">
-        insert into fund_info (fund_code,fund_name,yield_rate_min,yield_rate_max,invest_term_type,start_buy_money,popularity_value,publish_time_start,publish_time_end,risk_grade,product_specification_url,picture_url,create_time,is_deleted)
+        insert into fund_info (fund_code,fund_name,yield_rate_min,yield_rate_max,invest_term_type,start_buy_money,popularity_value,publish_time_start,publish_time_end,risk_grade,product_specification_url,pictures_url,create_time,is_deleted)
         values (#{fundInfo.fundCode},
                 #{fundInfo.fundName},
                 #{fundInfo.yieldRateMin},
@@ -15,9 +15,9 @@
                 #{fundInfo.publishTimeEnd},
                 #{fundInfo.riskGrade},
                 #{fundInfo.productSpecificationUrl},
-                #{fundInfo.pictureUrl},
+                #{fundInfo.picturesUrl},
                 #{fundInfo.createTime},
-                #{fundInfo.isDelete}
+                #{fundInfo.isDeleted}
                )
     </insert>
 
@@ -33,7 +33,7 @@
                              publish_time_end = #{fundInfo.publishTimeEnd},
                              risk_grade = #{fundInfo.riskGrade},
                              product_specification_url = #{fundInfo.productSpecificationUrl},
-                             picture_url = #{fundInfo.pictureUrl},
+                             pictures_url = #{fundInfo.picturesUrl},
                              update_time = #{fundInfo.updateTime}
         where id = #{fundInfo.id}
     </update>

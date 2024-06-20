@@ -13,7 +13,7 @@ public class FundinfoConsoleVo {
     private Integer publishTimeEnd;
     private Integer riskGrade;
     private String productSpecificationUrl;
-    private String pictureUrls;
+    private String picturesUrl;
 
     public String getFundCode() {
         return fundCode;
@@ -95,11 +95,11 @@ public class FundinfoConsoleVo {
         this.productSpecificationUrl = productSpecificationUrl;
     }
 
-    public String getPictureUrls() {
-        return pictureUrls;
+    public String getPicturesUrl() {
+        return picturesUrl;
     }
 
-    public void setPictureUrls(String pictureUrls) {
-        this.pictureUrls = pictureUrls;
+    public void setPicturesUrl(String picturesUrl) {
+        this.picturesUrl = picturesUrl;
     }
 }
