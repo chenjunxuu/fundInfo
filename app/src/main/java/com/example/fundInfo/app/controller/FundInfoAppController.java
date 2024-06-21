@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import java.math.BigInteger;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,7 +32,20 @@ public class FundInfoAppController {
             AppFundInfoListVo appFundInfoListVo = new AppFundInfoListVo();
             appFundInfoListVo.setId(fundInfo.getId());
             appFundInfoListVo.setFundName(fundInfo.getFundName());
-            appFundInfoListVo.setFundRate((String.valueOf(fundInfo.getYieldRateMin()))+"%"+"-"+(String.valueOf(fundInfo.getYieldRateMax()))+"%");
+
+            Long RateMin = Long.valueOf(String.valueOf(fundInfo.getYieldRateMin()));
+            Long z = RateMin/100;
+            Long r = RateMin%100;
+            String yieldRateMin = String.valueOf(String.valueOf(z)+"."+String.valueOf(r));
+
+            Long RateMax = Long.valueOf(String.valueOf(fundInfo.getYieldRateMax()));
+            Long zMax = RateMax/100;
+            Long rMax = RateMax%100;
+            String yieldRateMax = String.valueOf(String.valueOf(zMax)+"."+String.valueOf(rMax));
+
+            //appFundInfoListVo.setFundRate((String.valueOf(fundInfo.getYieldRateMin()))+"%"+"-"+(String.valueOf(fundInfo.getYieldRateMax()))+"%");
+            appFundInfoListVo.setFundRate(yieldRateMin+"%"+"-"+yieldRateMax+"%");
+
             appFundInfoListVo.setInvestTermType(String.valueOf(fundInfo.getInvestTermType()));
             appFundInfoListVo.setStartBuyMoney(String.valueOf(fundInfo.getStartBuyMoney()));
             appFundInfoListVo.setPopularityValue(fundInfo.getPopularityValue());
@@ -57,7 +71,14 @@ public class FundInfoAppController {
         appFundInfoVo.setStartBuyMoney(String.valueOf((fundInfo.getStartBuyMoney())));
         appFundInfoVo.setPopularityValue(fundInfo.getPopularityValue());
         appFundInfoVo.setInvestTermType(String.valueOf(fundInfo.getInvestTermType()));
-        appFundInfoVo.setPublishTime(String.valueOf(fundInfo.getPublishTimeStart())+"-"+String.valueOf(fundInfo.getPublishTimeEnd()));
+        // 时间格式转换
+        String timeStart = String.valueOf(fundInfo.getPublishTimeStart());
+        String timeEnd = String.valueOf(fundInfo.getPublishTimeEnd());
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String publishTimeStart = simpleDateFormat.format(Long.valueOf(timeStart));
+        String publishTimeEnd = simpleDateFormat.format(Long.valueOf(timeEnd));
+        appFundInfoVo.setPublishTime(publishTimeStart+" -- "+publishTimeEnd);
+
         appFundInfoVo.setRiskGrade(fundInfo.getRiskGrade());
         appFundInfoVo.setProductSpecificationUrl(fundInfo.getProductSpecificationUrl());
         // 图片地址
