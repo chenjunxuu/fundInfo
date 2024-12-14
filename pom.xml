@@ -19,15 +19,25 @@
 		<module>console</module>
 		<module>module</module>
 	</modules>
-
-
 	<properties>
+		<mybatis-plus.version>3.4.1</mybatis-plus.version>
+		<fastjson.version>2.0.0</fastjson.version>
 		<maven.compiler.source>17</maven.compiler.source>
 		<maven.complier.target>17</maven.complier.target>
 		<java.version>17</java.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 	</properties>
+	<dependencyManagement>
+		<dependencies>
+		<dependency>
+			<groupId>com.baomidou</groupId>
+			<artifactId>mybatis-plus-boot-starter</artifactId>
+			<version>${mybatis-plus.version}</version>
+		</dependency>
+		</dependencies>
+	</dependencyManagement>
+
 
 
 </project>

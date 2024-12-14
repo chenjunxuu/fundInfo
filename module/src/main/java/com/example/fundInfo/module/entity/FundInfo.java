@@ -6,8 +6,8 @@ public class FundInfo {
     private BigInteger id;
     private String fundCode;
     private String fundName;
-    private BigInteger yieldRateMin;
-    private BigInteger yieldRateMax;
+    private Integer yieldRateMin;
+    private Integer yieldRateMax;
     private Integer investTermType;
     private BigInteger startBuyMoney;
     private Integer popularityValue;
@@ -44,19 +44,19 @@ public class FundInfo {
         this.fundName = fundName;
     }
 
-    public BigInteger getYieldRateMin() {
+    public Integer getYieldRateMin() {
         return yieldRateMin;
     }
 
-    public void setYieldRateMin(BigInteger yieldRateMin) {
+    public void setYieldRateMin(Integer yieldRateMin) {
         this.yieldRateMin = yieldRateMin;
     }
 
-    public BigInteger getYieldRateMax() {
+    public Integer getYieldRateMax() {
         return yieldRateMax;
     }
 
-    public void setYieldRateMax(BigInteger yieldRateMax) {
+    public void setYieldRateMax(Integer yieldRateMax) {
         this.yieldRateMax = yieldRateMax;
     }
 

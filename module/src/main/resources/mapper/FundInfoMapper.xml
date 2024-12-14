@@ -1,40 +1,98 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper  namespace="com.example.fundInfo.module.mapper.FundInfoMapper">
-    <insert id="insert" parameterType="com.example.fundInfo.module.entity.FundInfo">
-        insert into fund_info (fund_code,fund_name,yield_rate_min,yield_rate_max,invest_term_type,start_buy_money,popularity_value,publish_time_start,publish_time_end,risk_grade,product_specification_url,pictures_url,create_time,is_deleted)
-        values (#{fundInfo.fundCode},
-                #{fundInfo.fundName},
-                #{fundInfo.yieldRateMin},
-                #{fundInfo.yieldRateMax},
-                #{fundInfo.investTermType},
-                #{fundInfo.startBuyMoney},
-                #{fundInfo.popularityValue},
-                #{fundInfo.publishTimeStart},
-                #{fundInfo.publishTimeEnd},
-                #{fundInfo.riskGrade},
-                #{fundInfo.productSpecificationUrl},
-                #{fundInfo.picturesUrl},
-                #{fundInfo.createTime},
-                #{fundInfo.isDeleted}
-               )
+<mapper namespace="com.example.fundInfo.module.mapper.FundInfoMapper">
+    <insert id="insert"
+            parameterType="com.example.fundInfo.module.entity.FundInfo">
+        insert into fund_info (
+        <if test="fundInfo.fundCode !=null and fundInfo.fundCode !=''">fund_code,
+        </if>
+        <if test="fundInfo.fundName != null and fundInfo.fundName !=
+''">fund_name,</if>
+        <if test="fundInfo.yieldRateMin !=null">yield_rate_min,</if>
+        <if test="fundInfo.yieldRateMax !=null">yield_rate_max,</if>
+        <if test="fundInfo.investTermType !=null">invest_term_type,</if>
+        <if test="fundInfo.startBuyMoney !=null">start_buy_money,</if>
+        <if test="fundInfo.popularityValue !=null">popularity_value,</if>
+        <if test="fundInfo.publishTimeStart !=null">publish_time_start,</if>
+        <if test="fundInfo.publishTimeEnd !=null">publish_time_end,</if>
+        <if test="fundInfo.riskGrade !=null">risk_grade,</if>
+        <if test="fundInfo.productSpecificationUrl and
+fundInfo.productSpecificationUrl !=''">
+            product_specification_url,
+        </if>
+        <if test="fundInfo.picturesUrl and fundInfo.picturesUrl
+!=''">pictures_url,</if>
+        <if test="fundInfo.createTime">create_time,</if>
+        <if test="fundInfo.updateTime">update_time,</if>
+        is_deleted)
+        values (
+        <if test="fundInfo.fundCode !=null and fundInfo.fundCode !=''">#
+            {fundInfo.fundCode},</if>
+        <if test="fundInfo.fundName != null and fundInfo.fundName != ''">#
+            {fundInfo.fundName},</if>
+        <if test="fundInfo.yieldRateMin !=null">#{fundInfo.yieldRateMin},</if>
+        <if test="fundInfo.yieldRateMax !=null">#{fundInfo.yieldRateMax},</if>
+        <if test="fundInfo.investTermType !=null">#{fundInfo.investTermType},
+        </if>
+        <if test="fundInfo.startBuyMoney !=null">#{fundInfo.startBuyMoney},</if>
+        <if test="fundInfo.popularityValue !=null">#{fundInfo.popularityValue},
+        </if>
+        <if test="fundInfo.publishTimeStart !=null">#{fundInfo.publishTimeStart},
+        </if>
+        <if test="fundInfo.publishTimeEnd !=null">#{fundInfo.publishTimeEnd},
+        </if>
+        <if test="fundInfo.riskGrade !=null">#{fundInfo.riskGrade},</if>
+        <if test="fundInfo.productSpecificationUrl !=null and
+fundInfo.productSpecificationUrl !=''">
+            #{fundInfo.productSpecificationUrl},
+        </if>
+        <if test="fundInfo.picturesUrl !=null and fundInfo.picturesUrl !=''">#
+            {fundInfo.picturesUrl},</if>
+        <if test="fundInfo.createTime !=null">#{fundInfo.createTime},</if>
+        <if test="fundInfo.updateTime !=null">#{fundInfo.updateTime},</if>
+        #{fundInfo.isDeleted}
+        )
     </insert>
-
-    <update id="update" parameterType="com.example.fundInfo.module.entity.FundInfo">
-        update fund_info set fund_code = #{fundInfo.fundCode},
-                             fund_name =  #{fundInfo.fundName},
-                             yield_rate_min = #{fundInfo.yieldRateMin},
-                             yield_rate_max = #{fundInfo.yieldRateMax},
-                             invest_term_type = #{fundInfo.investTermType},
-                             start_buy_money = #{fundInfo.startBuyMoney},
-                             popularity_value = #{fundInfo.popularityValue},
-                             publish_time_start = #{fundInfo.publishTimeStart},
-                             publish_time_end = #{fundInfo.publishTimeEnd},
-                             risk_grade = #{fundInfo.riskGrade},
-                             product_specification_url = #{fundInfo.productSpecificationUrl},
-                             pictures_url = #{fundInfo.picturesUrl},
-                             update_time = #{fundInfo.updateTime}
+    <update id="update"
+            parameterType="com.example.fundInfo.module.entity.FundInfo">
+        update fund_info
+        set id = #{fundInfo.id}
+        <if test="fundInfo.fundCode != null and fundInfo.fundCode!=''">,fund_code = #{fundInfo.fundCode}</if>
+        <if test="fundInfo.fundName != null and fundInfo.fundName!=''">,fund_name = #{fundInfo.fundName}</if>
+        <if test="fundInfo.yieldRateMin != null">,yield_rate_min = #
+            {fundInfo.yieldRateMin}</if>
+        <if test="fundInfo.yieldRateMax != null">,yield_rate_max = #
+            {fundInfo.yieldRateMax}</if>
+        <if test="fundInfo.investTermType != null">,invest_term_type = #
+            {fundInfo.investTermType}</if>
+        <if test="fundInfo.startBuyMoney != null">,start_buy_money = #
+            {fundInfo.startBuyMoney}</if>
+        <if test="fundInfo.popularityValue != null">,popularity_value = #
+            {fundInfo.popularityValue}</if>
+        <if test="fundInfo.publishTimeStart != null">,publish_time_start = #
+            {fundInfo.publishTimeStart}</if>
+        <if test="fundInfo.publishTimeEnd != null">,publish_time_end = #
+            {fundInfo.publishTimeEnd}</if>
+        <if test="fundInfo.riskGrade != null">,risk_grade = #{fundInfo.riskGrade}
+        </if>
+        <if test="fundInfo.productSpecificationUrl != null and
+fundInfo.productSpecificationUrl !=''">
+            ,product_specification_url = #{fundInfo.productSpecificationUrl}
+        </if>
+        <if test="fundInfo.picturesUrl !=null and fundInfo.picturesUrl
+!=''">,pictures_url = #{fundInfo.picturesUrl}
+        </if>
+        <if test="fundInfo.updateTime !=null">,update_time = #
+            {fundInfo.updateTime}</if>
         where id = #{fundInfo.id}
     </update>
+
+    <select id="findList"
+            resultType="com.example.fundInfo.module.entity.FundInfo">
+        SELECT *
+        FROM fund_info
+        where is_deleted = 0 limit #{startIndex}
+            , #{pageSize}
+    </select>
 </mapper>
