@@ -19,7 +19,9 @@ public interface FundInfoMapper {
     int delete(@Param("id") BigInteger id, @Param("time") Integer time);
 
     List<FundInfo> findList(@Param("startIndex") Integer startIndex,
-                            @Param("pageSize") Integer pageSize);
+                            @Param("pageSize") Integer pageSize,@Param("fundName") String fundName );
+
+
     @Select("select count(*) from fund_info where is_deleted = 0")
     int count();
 }

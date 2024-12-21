@@ -69,10 +69,9 @@ public class FundInfoConsoleController {
     }
     @RequestMapping("/list")
     public FundInfoListPageVo fundInfoListByPage(@RequestParam(name =
-            "currentPage") Integer currentPage){
+            "currentPage") Integer currentPage,@RequestParam(name = "name") String name){
         int pageSize = 2;
-        List<FundInfo> fundInfos = fundInfoService.getFundInfoByPage(currentPage,
-                pageSize);
+        List<FundInfo> fundInfos = fundInfoService.getFundInfoByPage(currentPage,pageSize,name);
         List<FundInfoList> fundInfoList = new ArrayList<>();
         if(!fundInfos.isEmpty()){
             for (FundInfo fundInfo : fundInfos) {
@@ -99,7 +98,7 @@ public class FundInfoConsoleController {
                 // 图片地址
                 List<String> split = List.of(fundInfo.getPicturesUrl().split("\\$"));
                 fundInfoVo.setPictureUrl(split.get(0));
-                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMM-dd HH:mm");
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
                 fundInfoVo.setCreateTime(simpleDateFormat.format(fundInfo.getCreateTime()*1000L));
                 fundInfoVo.setUpdateTime(simpleDateFormat.format(fundInfo.getUpdateTime()*1000L));
                 fundInfoList.add(fundInfoVo);

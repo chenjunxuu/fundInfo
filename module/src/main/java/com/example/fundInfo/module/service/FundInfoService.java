@@ -101,9 +101,10 @@ public class FundInfoService {
         fundInfo.setIsDeleted(0);
         return fundInfoMapper.update(fundInfo);
     }
-    public List<FundInfo> getFundInfoByPage(int currentPage, int pageSize) {
+    public List<FundInfo> getFundInfoByPage(int currentPage, int pageSize, String name) {
         int startIndex = (currentPage - 1) * pageSize;
-        return fundInfoMapper.findList(startIndex, pageSize);
+        String fundName = name;
+        return fundInfoMapper.findList(startIndex, pageSize ,fundName);
     }
     public int getTotalCount() {
         return fundInfoMapper.count();

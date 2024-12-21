@@ -92,7 +92,9 @@ fundInfo.productSpecificationUrl !=''">
             resultType="com.example.fundInfo.module.entity.FundInfo">
         SELECT *
         FROM fund_info
-        where is_deleted = 0 limit #{startIndex}
-            , #{pageSize}
+        where is_deleted = 0
+        <if test="fundName != null and fundName != ''">
+            and fund_name like concat('%',#{fundName},'%')</if>
+            limit #{startIndex}, #{pageSize}
     </select>
 </mapper>

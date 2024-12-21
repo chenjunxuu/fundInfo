@@ -4,6 +4,7 @@ import com.example.fundInfo.app.domain.AppFundInfoVo;
 import com.example.fundInfo.app.domain.FundInfoPageVo;
 import com.example.fundInfo.module.entity.FundInfo;
 import com.example.fundInfo.module.service.FundInfoService;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -22,9 +23,9 @@ public class FundInfoAppController {
 //查询基金列表
     @RequestMapping("/all")
     public FundInfoPageVo getAllFundInfo(@RequestParam(name = "currentPage")
-                                         Integer currentPage) {
+                                         Integer currentPage, @RequestParam(name = "name") String name) {
         int pageSize = 3;
-        List<FundInfo> fundInfoList = fundInfoService.getFundInfoByPage(currentPage, pageSize);
+        List<FundInfo> fundInfoList = fundInfoService.getFundInfoByPage(currentPage, pageSize,name);
         List<AppFundInfoList> appFundInfoListVos = new ArrayList<>();
         FundInfoPageVo fundInfoPageVo = new FundInfoPageVo();
         if (!fundInfoList.isEmpty()) {
