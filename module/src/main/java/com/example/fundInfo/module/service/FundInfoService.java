@@ -29,23 +29,24 @@ public class FundInfoService {
         if (fundCode != null && fundCode.length() > 0) {
             fundInfo.setFundCode(fundCode);
         } else {
-            return -1;
+            throw new IllegalArgumentException("更新用户时参数不合法");
         }
         if (fundName != null && fundName.length() > 0) {
             fundInfo.setFundName(fundName);
         } else {
-            return -1;
+            throw new IllegalArgumentException("更新用户时参数不合法");
         }
         //2.20%-2.40%
         if (fundRateMin != null && fundRateMin.length() > 0) {
             fundInfo.setYieldRateMin(Integer.valueOf(fundRateMin));
         } else {
-            return -1;
+            throw new IllegalArgumentException("更新用户时参数不合法");
         }
         if (fundRateMax != null && fundRateMax.length() > 0) {
             fundInfo.setYieldRateMax(Integer.valueOf(fundRateMax));
         } else {
-            return -1;
+
+            throw new IllegalArgumentException("更新用户时参数不合法");
         }
         fundInfo.setInvestTermType(investTermType);
         fundInfo.setStartBuyMoney(startBuyMoney);
@@ -70,25 +71,26 @@ public class FundInfoService {
         fundInfo.setId(id);
         if (fundCode != null && fundCode.length() > 0) {
             fundInfo.setFundCode(fundCode);
-        } else {
-            return -1;
+        }else {
+            throw new IllegalArgumentException("更新用户时参数不合法");
         }
         if (fundName != null && fundName.length() > 0) {
             fundInfo.setFundName(fundName);
-        } else {
-            return -1;
+        }else {
+            throw new IllegalArgumentException("更新用户时参数不合法");
         }
 //2.20%-2.40%
         if (fundRateMin != null && fundRateMin.length() > 0) {
             fundInfo.setYieldRateMin(Integer.valueOf(fundRateMin));
-        } else {
-            return -1;
+        }else {
+            throw new IllegalArgumentException("更新用户时参数不合法");
         }
         if (fundRateMax != null && fundRateMax.length() > 0) {
             fundInfo.setYieldRateMax(Integer.valueOf(fundRateMax));
         } else {
-            return -1;
+            throw new IllegalArgumentException("更新用户时参数不合法");
         }
+
         fundInfo.setInvestTermType(investTermType);
         fundInfo.setStartBuyMoney(startBuyMoney);
         fundInfo.setPopularityValue(popularityValue);

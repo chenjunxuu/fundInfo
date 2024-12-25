@@ -5,6 +5,7 @@ import com.example.fundInfo.module.entity.FundInfo;
 import com.example.fundInfo.module.service.FundDefine;
 import com.example.fundInfo.module.service.FundInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.math.BigInteger;
 import java.text.SimpleDateFormat;
@@ -36,9 +37,14 @@ public class FundInfoConsoleController {
                 fundRateMin.isEmpty() || fundRateMax.isEmpty() ) {
             return "参数错误";
         }
-        int result = fundInfoService.createFundInfo(fundCode,fundName,fundRateMin,fundRateMax,investTermType,startBuyMoney,popularityValue,
-                        publishTimeStart,publishTimeEnd,riskGrade,productSpecificationUrl,picturesUrl);
-        return 1 == result ? "成功" : "失败";
+
+        try{
+            int result = fundInfoService.createFundInfo(fundCode,fundName,fundRateMin,fundRateMax,investTermType,startBuyMoney,popularityValue,
+                    publishTimeStart,publishTimeEnd,riskGrade,productSpecificationUrl,picturesUrl);
+            return 1 == result ? "成功" : "失败";
+        }catch (IllegalArgumentException e){
+            return "参数错误";
+        }
     }
     @RequestMapping(value = "/update")
     public String fundInfoUpdate(@RequestParam(name = "id") BigInteger id,
@@ -62,10 +68,15 @@ public class FundInfoConsoleController {
                 fundRateMin.isEmpty() || fundRateMax.isEmpty()) {
             return "参数错误";
         }
-        int result =
-                fundInfoService.updateFundInfo(id,fundCode,fundName,fundRateMin,fundRateMax,investTermType,
-                        startBuyMoney,popularityValue,publishTimeStart,publishTimeEnd,riskGrade,productSpecificationUrl,picturesUrl);
-        return 1 == result ? "成功" : "失败";
+        try{
+            int result =
+                    fundInfoService.updateFundInfo(id,fundCode,fundName,fundRateMin,fundRateMax,investTermType,
+                            startBuyMoney,popularityValue,publishTimeStart,publishTimeEnd,riskGrade,productSpecificationUrl,picturesUrl);
+            return 1 == result ? "成功" : "失败";
+        } catch (IllegalArgumentException e){
+            return "参数错误";
+        }
+
     }
     @RequestMapping("/list")
     public FundInfoListPageVo fundInfoListByPage(@RequestParam(name =
