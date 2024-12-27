@@ -4,8 +4,7 @@ import com.example.fundInfo.module.mapper.FundInfoMapper;
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.math.BigInteger;
-import java.util.ArrayList;
-import java.util.List;
+    import java.util.List;
 @Service
 public class FundInfoService {
     @Resource
@@ -105,8 +104,7 @@ public class FundInfoService {
     }
     public List<FundInfo> getFundInfoByPage(int currentPage, int pageSize, String name) {
         int startIndex = (currentPage - 1) * pageSize;
-        String fundName = name;
-        return fundInfoMapper.findList(startIndex, pageSize ,fundName);
+        return fundInfoMapper.findList(startIndex, pageSize ,name);
     }
     public int getTotalCount() {
         return fundInfoMapper.count();

@@ -20,7 +20,7 @@ public class FundInfoAppController {
     @Autowired
     private FundInfoService fundInfoService;
     //http://localhost:8080/fundInfo/all
-//查询基金列表
+    //查询基金列表
     @RequestMapping("/all")
     public FundInfoPageVo getAllFundInfo(@RequestParam(name = "currentPage")
                                          Integer currentPage, @RequestParam(name = "name") String name) {
@@ -43,7 +43,7 @@ public class FundInfoAppController {
                                     rateMax)).append("%").toString();
                     appFundInfoListVo.setFundRate(fundRate);
                 }
-//投资周期
+                //投资周期
                 appFundInfoListVo.setInvestTermType(FundDefine.covertFundInfoType(fundInfo.getInvestTermType()));
                 StringBuilder sbMoney = new StringBuilder();
                 String sbm = String.valueOf(fundInfo.getStartBuyMoney());
@@ -53,7 +53,7 @@ public class FundInfoAppController {
                         sbMoney.append("￥").append(zMoney).append(".").append(yMoney).toString();
                 appFundInfoListVo.setStartBuyMoney(startBuyMoney);
                 appFundInfoListVo.setPopularityValue(fundInfo.getPopularityValue());
-// 图片地址
+                // 图片地址
                 List<String> split = new ArrayList<>();
                 split = List.of(fundInfo.getPicturesUrl().split("\\$"));
                 appFundInfoListVo.setPictureUrl(split.get(0));
@@ -65,12 +65,11 @@ public class FundInfoAppController {
         return fundInfoPageVo;
     }
     //http://localhost:8080/fundInfo/info?id=1
-//查询基金详情
+    //查询基金详情
     @RequestMapping("/info")
     public AppFundInfoVo getFundInfoById(@RequestParam(name = "id") BigInteger
                                                  id) {
 //FundInfo fundInfo = new FundInfo();
-//fundInfo 可能为空，需要做判空处理
         FundInfo fundInfo = fundInfoService.findInfoById(id);
         if (fundInfo != null) {
             AppFundInfoVo appFundInfoVo = new AppFundInfoVo();
